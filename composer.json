@@ -1,0 +1,23 @@
+{
+    "name": "root/php-captcha",
+    "authors": [
+        {
+            "name": "fifths",
+            "email": "ligangmingx@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Captcha\\": "src/Captcha/"
+        }
+    },
+    "repositories": {
+    "packagist": {
+        "type": "composer",
+        "url": "https://packagist.phpcomposer.com"
+    }
+}
+}
