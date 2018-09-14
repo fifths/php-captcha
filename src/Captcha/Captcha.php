@@ -11,18 +11,26 @@ namespace Captcha;
 class Captcha
 {
     public $charset = 'abcdefghkmnprstuvwxyzABCDEFGHKMNPRSTUVWXYZ23456789';//随机因子
+
     public $code;//验证码
+
     public $codelen = 4;//验证码长度
-    public $width = 130;//宽度
-    public $height = 50;//高度
+
+    public $width = 120;//宽度
+
+    public $height = 36;//高度
+
     public $img;//图形资源句柄
+
     public $font;//指定的字体
+
     public $fontsize = 20;//指定字体大小
+
     public $fontcolor;//指定字体颜色
 
     public function __construct()
     {
-        $this->font = dirname(__FILE__) . '/elephant.ttf';
+        $this->font = dirname(__FILE__) . '/../asset/font/Open_Sans_regular.ttf';
     }
 
     //随机码
@@ -78,7 +86,7 @@ class Captcha
     {
         $this->createBg();
         $this->createCode();
-        $this->createLine();
+        //$this->createLine();
         $this->createFont();
         $this->outPut();
     }
