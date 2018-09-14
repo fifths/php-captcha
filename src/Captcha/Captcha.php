@@ -34,7 +34,7 @@ class Captcha
     }
 
     //随机码
-    private function createCode()
+    public function createCode()
     {
         $_len = strlen($this->charset) - 1;
         for ($i = 0; $i < $this->codelen; $i++) {
@@ -42,8 +42,13 @@ class Captcha
         }
     }
 
+    public function setCode($code)
+    {
+        $this->code = $code;
+    }
+
     //背景
-    private function createBg()
+    public function createBg()
     {
         $this->img = imagecreatetruecolor($this->width, $this->height);
         $color = imagecolorallocate($this->img, mt_rand(157, 255), mt_rand(157, 255), mt_rand(157, 255));
@@ -51,7 +56,7 @@ class Captcha
     }
 
     //文字
-    private function createFont()
+    public function createFont()
     {
         $_x = $this->width / $this->codelen;
         for ($i = 0; $i < $this->codelen; $i++) {
@@ -61,7 +66,7 @@ class Captcha
     }
 
     //线条、雪花
-    private function createLine()
+    public function createLine()
     {
         //线条
         for ($i = 0; $i < 6; $i++) {
@@ -75,7 +80,7 @@ class Captcha
         }
     }
 
-    private function outPut()
+    public function outPut()
     {
         header('Content-type:image/png');
         imagepng($this->img);
@@ -86,7 +91,7 @@ class Captcha
     {
         $this->createBg();
         $this->createCode();
-        //$this->createLine();
+        $this->createLine();
         $this->createFont();
         $this->outPut();
     }
