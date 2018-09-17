@@ -8,6 +8,12 @@
 
 include "../vendor/autoload.php";
 
-$Captcha = new \Captcha\Captcha();
+/*$Captcha = new \Captcha\Captcha();
 
-$Captcha->createImage();
+$Captcha->createImage();*/
+
+$Captcha = new \Captcha\NewCaptcha();
+$image = $Captcha->createImage();
+header('Content-type:image/png');
+imagepng($image);
+imagedestroy($image);
